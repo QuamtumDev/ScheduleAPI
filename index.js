@@ -54,6 +54,9 @@ function getCurrentPeriod() {
     }
   });
   
+module.exports = {
+  app
+};
 
 // Start the server
 const port = 1111;
