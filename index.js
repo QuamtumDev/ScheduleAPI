@@ -7,20 +7,6 @@ app.get('/', (req, res) => {
     res.json(schedule)
 })
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }))
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Methods', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    if (req.method === 'OPTIONS') {
-        res.status(200).end()
-        return
-      }
-    next();
-});
-
 function getCurrentDayAndTime() {
     const now = moment().tz("Asia/Bangkok");
     const day = now.format("dddd");
@@ -50,6 +36,20 @@ function getCurrentPeriod() {
       return { message: "No schedule available for today" };
     }
   }
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }))
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    if (req.method === 'OPTIONS') {
+        res.status(200).end()
+        return
+      }
+    next();
+});
 
   app.get("/now/", (req, res) => {
     res.json(getCurrentPeriod());
