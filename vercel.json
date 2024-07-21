@@ -1,12 +1,34 @@
 {
-   "routes": [
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ],
+  "routes": [
     {
       "src": "/",
-      "dest": "index.js"
+      "dest": "/",
+      "methods": ["GET"]
     },
     {
-       "src": "/now",
-       "dest": "./schedule.json"
+      "src": "/now",
+      "dest": "/now/",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/next",
+      "dest": "/next/",
+      "methods": ["GET"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/",
+      "methods": ["GET"]
     }
-  ]
+  ],
+  "functions": {
+    "api": {
+      "handler": "index.app",
+      "memory": 1024
+    }
+  },
+  "version": 2
 }
