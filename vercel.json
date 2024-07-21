@@ -23,12 +23,7 @@
       "dest": "/",
       "methods": ["GET"]
     }
-  ],
-  "functions": {
-    "api": {
-      "handler": "index.app",
-      "memory": 1024
-    }
+  ]
   },
   "version": 2
 }
