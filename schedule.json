@@ -1,0 +1,33 @@
+{
+    "Monday": [
+        {
+          "period": 0,
+          "start": "08:30",
+          "end": "08:40",
+          "subject-code": "",
+          "subject-name": "Home room",
+          "room": 0,
+          "teacher": ""
+        },
+        {
+          "period": 1,
+          "start": "08:40",
+          "end": "09:35",
+          "subject-code": "",
+          "subject-name": "Test",
+          "room": 0,
+          "teacher": ""
+        }
+    ],
+    "Tuesday": [
+        {
+          "period": 0,
+          "start": "08:30",
+          "end": "08:40",
+          "subject-code": "",
+          "subject-name": "Home room",
+          "room": 0,
+          "teacher": ""
+        }
+    ]
+}
