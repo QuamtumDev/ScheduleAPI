@@ -5,8 +5,8 @@
       "dest": "index.js"
     },
     {
-      "src": "/now",
-       "dest": "/now/"
+       "src": "/now",
+       "dest": "./schedule.json"
     }
   ]
 }
