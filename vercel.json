@@ -3,10 +3,6 @@
     {
       "src": "/(.*)",
       "dest": "index.js"
-    },
-    {
-      "src": "/sdapi",
-      "dest": "./schedule.json"
     }
   ]
 }
