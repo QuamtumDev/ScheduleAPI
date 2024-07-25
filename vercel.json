@@ -1,12 +1,14 @@
 {
   "routes": [
     {
-      "src": "/",
+      "src": "/(.*)",
       "dest": "index.js"
-    },
+    }
+  ],
+  "rewrites": [
     {
       "src": "/secret",
-      "dest": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      "dest": "https://google.com"
     }
   ]
 }
