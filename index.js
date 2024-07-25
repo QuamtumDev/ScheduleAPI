@@ -55,18 +55,30 @@ app.use((req, res, next) => {
     res.json(getCurrentPeriod());
   });
 
-  app.get("/next", (req, res) => {
-    const { day } = getCurrentDayAndTime();
-    const next = schedule[day].find(
-      (current) => current.period === getCurrentPeriod().period + 1,
-    );
-  
-    if (next !== undefined) {
-      res.json(next);
-    } else {
-      res.json({ message: "No class found" });
+  app.get('/next', (req, res) => {
+    try {
+        const { day } = getCurrentDayAndTime();
+        const currentPeriod = getCurrentPeriod();
+
+        if (!currentPeriod || !currentPeriod.period) {
+            res.json({ message: 'No current class found' });
+            return;
+        }
+
+        const nextPeriod = schedule[day].find(
+            (current) => current.period === currentPeriod.period + 1
+        );
+
+        if (nextPeriod) {
+            res.json(nextPeriod);
+        } else {
+            res.json({ message: 'No next class found' });
+        }
+    } catch (error) {
+        console.error('Error at /next endpoint:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
-  });
+});
   
   module.exports = app;
 
