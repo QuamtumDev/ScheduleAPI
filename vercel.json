@@ -1,8 +1,12 @@
 {
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/",
       "dest": "index.js"
+    },
+    {
+      "src": "/secret",
+      "dest": "https://google.com"
     }
   ]
 }

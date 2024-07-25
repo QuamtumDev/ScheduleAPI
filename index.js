@@ -51,11 +51,11 @@ app.use((req, res, next) => {
     next();
 });
 
-  app.get("/now/", (req, res) => {
+  app.get("/now", (req, res) => {
     res.json(getCurrentPeriod());
   });
 
-  app.get("/next/", (req, res) => {
+  app.get("/next", (req, res) => {
     const { day } = getCurrentDayAndTime();
     const next = schedule[day].find(
       (current) => current.period === getCurrentPeriod().period + 1,
