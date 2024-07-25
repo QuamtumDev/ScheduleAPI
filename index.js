@@ -3,7 +3,7 @@ const moment = require("moment-timezone");
 const schedule = require('./schedule.json');
 app = express();
 
-app.get('/', (req, res) => {
+app.get('/', (req) => {
     res.json(schedule)
 })
 
