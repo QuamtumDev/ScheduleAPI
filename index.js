@@ -68,13 +68,13 @@ app.use((req, res, next) => {
     }
   });
   
-module.exports = {
-  app
-};
+  module.exports = app;
 
-// Start the server
-const port = 1111;
-app.listen(port, () => {
-  console.log('Server : localhost');
-  console.log(`Server is running on port ${port}`);
-});
+  // Start the server if not in Vercel environment
+  if (require.main === module) {
+    const port = 1111;
+    app.listen(port, () => {
+      console.log('Server : localhost');
+      console.log(`Server is running on port ${port}`);
+    });
+  }
